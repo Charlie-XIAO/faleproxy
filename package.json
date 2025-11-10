@@ -6,7 +6,6 @@
   "scripts": {
     "start": "node app.js",
     "dev": "nodemon app.js",
-    "vercel-build": "echo 'Building for Vercel deployment'",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:ci": "jest --ci --coverage"
