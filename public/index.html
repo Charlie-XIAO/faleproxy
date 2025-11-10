@@ -1,45 +1,53 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Faleproxy - Replace Yale with Fale</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
     <header>
-        <div class="container">
-            <h1>Faleproxy</h1>
-            <form id="url-form">
-                <div class="form-group">
-                    <input type="url" id="url-input" placeholder="Enter URL (e.g., https://www.yale.edu)" required>
-                    <button type="submit">Fetch & Replace</button>
-                </div>
-            </form>
-        </div>
+      <div class="container">
+        <h1>Faleproxy</h1>
+        <form id="url-form">
+          <div class="form-group">
+            <input
+              type="url"
+              id="url-input"
+              placeholder="Enter URL (e.g., https://www.yale.edu)"
+              required
+            />
+            <button type="submit">Fetch & Replace</button>
+          </div>
+        </form>
+      </div>
     </header>
 
     <main class="container">
-        <div id="loading" class="hidden">
-            <div class="spinner"></div>
-            <p>Fetching and processing content...</p>
-        </div>
+      <div id="loading" class="hidden">
+        <div class="spinner"></div>
+        <p>Fetching and processing content...</p>
+      </div>
 
-        <div id="error-message" class="hidden"></div>
+      <div id="error-message" class="hidden"></div>
 
-        <div id="result-container" class="hidden">
-            <div id="info-bar">
-                <p>Original URL: <a id="original-url" target="_blank" rel="noopener noreferrer"></a></p>
-                <p>Page Title: <span id="page-title"></span></p>
-            </div>
-            <div id="content-display"></div>
+      <div id="result-container" class="hidden">
+        <div id="info-bar">
+          <p>
+            Original URL:
+            <a id="original-url" target="_blank" rel="noopener noreferrer"></a>
+          </p>
+          <p>Page Title: <span id="page-title"></span></p>
         </div>
+        <div id="content-display"></div>
+      </div>
     </main>
 
     <footer class="container">
-        <p>Faleproxy - Created on March 26, 2025</p>
+      <p>Faleproxy - Created on March 26, 2025</p>
     </footer>
 
     <script src="script.js"></script>
-</body>
+  </body>
 </html>

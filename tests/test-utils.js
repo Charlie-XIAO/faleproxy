@@ -45,5 +45,5 @@ const sampleHtmlWithYale = `
 `;
 
 module.exports = {
-  sampleHtmlWithYale
+  sampleHtmlWithYale,
 };
