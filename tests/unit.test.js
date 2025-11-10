@@ -62,7 +62,7 @@ describe("Yale to Fale replacement logic", () => {
       </head>
       <body>
         <h1>Hello World</h1>
-        <p>This is a test page with no Yale references.</p>
+        <p>This is a test page with no specific references.</p>
       </body>
       </html>
     `;
@@ -89,7 +89,7 @@ describe("Yale to Fale replacement logic", () => {
     expect(modifiedHtml).toContain("<title>Test Page</title>");
     expect(modifiedHtml).toContain("<h1>Hello World</h1>");
     expect(modifiedHtml).toContain(
-      "<p>This is a test page with no Yale references.</p>",
+      "<p>This is a test page with no specific references.</p>",
     );
   });
 

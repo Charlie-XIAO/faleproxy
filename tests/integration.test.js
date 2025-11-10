@@ -20,7 +20,7 @@ describe("Integration Tests", () => {
     // Create a temporary test app file
     await execAsync("cp app.js app.test.js");
     await execAsync(
-      `sed -i '' 's/const PORT = 3001/const PORT = ${TEST_PORT}/' app.test.js`,
+      `sed -i 's/const PORT = 3001/const PORT = ${TEST_PORT}/' app.test.js`,
     );
 
     // Start the test server
