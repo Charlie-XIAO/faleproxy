@@ -18,7 +18,10 @@ app.get("/", (req, res) => {
 
 const replaceAllCases = (text) => {
   if (!text) return text;
-  return text.replace(/Yale/g, "Fale").replace(/yale/g, "fale");
+  return text
+    .replace(/YALE/g, "FALE")
+    .replace(/Yale/g, "Fale")
+    .replace(/yale/g, "fale");
 };
 
 // API endpoint to fetch and modify content
