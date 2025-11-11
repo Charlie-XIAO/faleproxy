@@ -84,7 +84,8 @@ describe("Integration Tests", () => {
       // Should not reach here
       expect(true).toBe(false);
     } catch (error) {
-      expect(error.response.status).toBe(500);
+      const { status } = error.response;
+      expect(status).toBe(500);
     }
   });
 
@@ -94,8 +95,9 @@ describe("Integration Tests", () => {
       // Should not reach here
       expect(true).toBe(false);
     } catch (error) {
-      expect(error.response.status).toBe(400);
-      expect(error.response.data.error).toBe("URL is required");
+      const { status, data } = error.response;
+      expect(status).toBe(400);
+      expect(data.error).toBe("URL is required");
     }
   });
 });
