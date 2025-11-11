@@ -1,6 +1,17 @@
 const cheerio = require("cheerio");
 const { sampleHtmlWithYale } = require("./test-utils");
 
+// Helper function matching app.js
+// TBH app.js has really weird logic... it should really export stuff to be
+// more easily testable...
+const replaceAllCases = (text) => {
+  if (!text) return text;
+  return text
+    .replace(/YALE/g, "FALE")
+    .replace(/Yale/g, "Fale")
+    .replace(/yale/g, "fale");
+};
+
 describe("Yale to Fale replacement logic", () => {
   test("should replace Yale with Fale in text content", () => {
     const $ = cheerio.load(sampleHtmlWithYale);
@@ -14,17 +25,14 @@ describe("Yale to Fale replacement logic", () => {
       .each(function () {
         // Replace text content but not in URLs or attributes
         const text = $(this).text();
-        const newText = text.replace(/Yale/g, "Fale").replace(/yale/g, "fale");
+        const newText = replaceAllCases(text);
         if (text !== newText) {
           $(this).replaceWith(newText);
         }
       });
 
     // Process title separately
-    const title = $("title")
-      .text()
-      .replace(/Yale/g, "Fale")
-      .replace(/yale/g, "fale");
+    const title = replaceAllCases($("title").text());
     $("title").text(title);
 
     const modifiedHtml = $.html();
@@ -77,7 +85,7 @@ describe("Yale to Fale replacement logic", () => {
       })
       .each(function () {
         const text = $(this).text();
-        const newText = text.replace(/Yale/g, "Fale").replace(/yale/g, "fale");
+        const newText = replaceAllCases(text);
         if (text !== newText) {
           $(this).replaceWith(newText);
         }
@@ -107,7 +115,7 @@ describe("Yale to Fale replacement logic", () => {
       })
       .each(function () {
         const text = $(this).text();
-        const newText = text.replace(/Yale/gi, "Fale");
+        const newText = replaceAllCases(text);
         if (text !== newText) {
           $(this).replaceWith(newText);
         }
